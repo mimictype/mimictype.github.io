@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages (Root)
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'dist/**'
+      - '*.html'
+      - 'assets/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build
+      run: npm run build
+      env:
+        NODE_ENV: production
+        
+    - name: Deploy to main branch root
+      run: |
+        # Copy dist contents to root (excluding source files)
+        cp -r dist/* .
+        
+        # Remove development files but keep necessary config files
+        rm -f index.dev.html
+        
+        # Configure git
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add and commit the built files
+        git add *.html assets/ *.png *.svg CNAME || true
+        git commit -m "Deploy built files to main branch root [skip ci]" || exit 0
+        git push

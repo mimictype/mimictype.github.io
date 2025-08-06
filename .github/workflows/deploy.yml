@@ -36,6 +36,9 @@ jobs:
       run: npm run build
       env:
         NODE_ENV: production
+        
+    - name: Copy CNAME to dist
+      run: cp CNAME dist/ || echo "CNAME file not found, skipping"
       
     - name: Setup Pages
       uses: actions/configure-pages@v4

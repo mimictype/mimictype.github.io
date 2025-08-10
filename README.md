@@ -1,12 +1,51 @@
-# React + Vite
+# MimicType 公式サイト
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このリポジトリは、MimicType公式サイトのソースコードを管理しています。
 
-Currently, two official plugins are available:
+## 開発環境のセットアップ
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+# 依存パッケージのインストール
+npm install
 
-## Expanding the ESLint configuration
+# 開発サーバーの起動
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# ビルド
+npm run build
+
+# ビルド結果のプレビュー
+npm run preview
+
+# GitHub Pagesへのデプロイ
+npm run deploy
+```
+
+## 技術スタック
+
+- React
+- Vite
+- GitHub Pages
+
+## デザイン仕様
+
+- 背景色：#262626
+- 文字色：#FFFFFF
+- ブランドイメージ色：#D396ED
+- ブランドアクセント色：#96B4ED
+
+## ディレクトリ構造
+
+```
+/
+├── public/           # 静的ファイル
+│   ├── CNAME         # カスタムドメイン設定
+│   └── logo_512x256.PNG  # ロゴファイル
+├── src/              # ソースコード
+│   ├── components/   # Reactコンポーネント
+│   ├── assets/       # アセットファイル
+│   ├── App.jsx       # メインコンポーネント
+│   └── main.jsx      # エントリーポイント
+├── 設計.md           # サイト設計ドキュメント
+└── package.json      # プロジェクト設定
+```

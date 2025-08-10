@@ -40,7 +40,7 @@ npm run deploy
 /
 ├── public/           # 静的ファイル
 │   ├── CNAME         # カスタムドメイン設定
-│   └── logo_512x256.PNG  # ロゴファイル
+│   └── logo_512x160.PNG  # ロゴファイル
 ├── src/              # ソースコード
 │   ├── components/   # Reactコンポーネント
 │   ├── assets/       # アセットファイル

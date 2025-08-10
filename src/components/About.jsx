@@ -10,13 +10,10 @@ function About() {
           <h3 className="subsection-title">名前の意味</h3>
           
           <div className="name-meaning">
-            <div className="name-item">
-              <h4 className="name-title">mimictype</h4>
-              <p className="name-description">
-                「Mimic（模倣・擬態）」と「Type（型・形式）」を組み合わせた造語。
-              </p>
-            </div>
-            
+          <p className="subsection-description">
+            mimictypeは「mimic（模倣・擬態）」と「type（型・形式）」を組み合わせた造語。
+          </p>
+
             <div className="name-item">
               <h4 className="name-title">mimic（ミミック）</h4>
               <p className="name-description">

@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-container">
         <div className="copyright">
-          &copy; {currentYear} MimicType All Rights Reserved.
+          &copy; {currentYear} mimictype All Rights Reserved.
         </div>
       </div>
     </footer>

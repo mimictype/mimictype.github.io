@@ -30,7 +30,7 @@
 }
 
 .subsection-title {
-  color: var(--accent-color);
+  color: var(--text-color);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }

@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="container header-container">
         <div className="logo-container">
-          <img src={logo} alt="MimicType Logo" className="logo" />
+          <img src={logo} alt="mimictype Logo" className="logo" />
         </div>
         <nav className="nav">
           <ul className="nav-list">

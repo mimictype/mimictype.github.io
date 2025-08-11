@@ -9,26 +9,70 @@ function Services() {
         <div className="services-container">
           <div className="subsection">
             <h3 className="subsection-title">作れるもの</h3>
-            <div className="services-grid">
-              <div className="service-card">
-                <h4 className="service-title">Webサイト・アプリケーション</h4>
-                <p className="service-description">
-                  企業サイト、ランディングページ、Webアプリケーション等の設計・開発
-                </p>
+            <div className="services-showcase">
+              <div className="service-card-large">
+                <div className="service-icon">
+                  <i className="service-icon-hardware"></i>
+                </div>
+                <div className="service-content">
+                  <h4 className="service-title">電子工作・ハードウェア制御</h4>
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>小型電子工作デバイスの製作</span>
+                    </div>
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>センサー・アクチュエータの制御（角速度センサー、サーボモーター、LEDなど）</span>
+                    </div>
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>他デバイスとの統合制御システム構築</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="service-card">
-                <h4 className="service-title">業務効率化システム</h4>
-                <p className="service-description">
-                  社内業務の自動化、効率化ツールの開発
-                </p>
+              <div className="service-card-large">
+                <div className="service-icon">
+                  <i className="service-icon-app"></i>
+                </div>
+                <div className="service-content">
+                  <h4 className="service-title">アプリケーション開発</h4>
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>PCアプリ（Windows / macOS）</span>
+                    </div>
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>モバイルアプリ（iOS / Android）</span>
+                    </div>
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>Webアプリ・Webサイト制作</span>
+                    </div>
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>LINE Bot 開発</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="service-card">
-                <h4 className="service-title">システム連携・API開発</h4>
-                <p className="service-description">
-                  既存システムの連携、APIの開発・導入支援
-                </p>
+              <div className="service-card-large">
+                <div className="service-icon">
+                  <i className="service-icon-game"></i>
+                </div>
+                <div className="service-content">
+                  <h4 className="service-title">ゲーム開発</h4>
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <span className="feature-dot"></span>
+                      <span>ハイパーカジュアルゲーム制作</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -93,12 +137,31 @@ function Services() {
             <div className="achievements-grid">
               <div className="achievement-item">
                 <div className="achievement-icon">
+                  <i className="achievement-icon-binoculars"></i>
+                </div>
+                <div className="achievement-content">
+                  <h4 className="achievement-title">イベント出展用体験型モック</h4>
+                  <p className="achievement-description">
+                    森の中で動物を探して観察する疑似体験システムを開発。
+                    6軸（加速度・角速度）センサーを活用し、体験者の回転に応じて音声と映像を切り替えるデバイスを実装。
+                  </p>
+                  <div className="achievement-tech-container">
+                    <span className="tech-tag">C/C++</span>
+                    <span className="tech-tag">Unity（C#）</span>
+                    <span className="tech-tag">Arduino</span>
+                    <span className="tech-tag">UDP通信</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="achievement-item">
+                <div className="achievement-icon">
                   <i className="achievement-icon-steering"></i>
                 </div>
                 <div className="achievement-content">
                   <h4 className="achievement-title">ステアリング操作感検証用アプリ</h4>
                   <p className="achievement-description">
-                    自動車部品メーカー向けに、他社製ハードウェアと通信しGUIを制御するアプリを開発。
+                    自動車部品メーカー向けに、他社製ハードウェアと通信し、GUIを制御するアプリを開発。
                     操作感検証に特化した設計で、安定した動作環境を実現。
                   </p>
                   <div className="achievement-tech-container">

@@ -8,7 +8,7 @@ function AboutPage() {
     <div className="app">
       <Header />
       <main className="main">
-        <section id="about" className="section about-section" style={{ paddingTop: '120px' }}>
+        <section id="about" className="section about-section" style={{ paddingTop: '40px' }}>
           <div className="container">
             <h2 className="section-title">About</h2>
             

@@ -14,7 +14,7 @@ function WorkDetail() {
       <div className="app">
         <Header />
         <main className="main">
-          <div className="container" style={{ paddingTop: '120px' }}>
+          <div className="container" style={{ paddingTop: '40px' }}>
             <h2>作品が見つかりませんでした</h2>
             <Link to="/works" className="back-button">作品一覧に戻る</Link>
           </div>
@@ -28,7 +28,7 @@ function WorkDetail() {
     <div className="app">
       <Header />
       <main className="main">
-        <section className="section work-detail-section" style={{ paddingTop: '120px' }}>
+        <section className="section work-detail-section" style={{ paddingTop: '80px' }}>
           <div className="container">
             <h2 className="section-title">{work.title}</h2>
             

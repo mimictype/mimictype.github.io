@@ -1,14 +1,14 @@
-.services-section {
+.service-section {
   padding: 3rem 0;
 }
 
-.services-container {
+.service-container {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-.services-showcase {
+.service-showcase {
   display: flex;
   flex-direction: column;
   gap: 2rem;

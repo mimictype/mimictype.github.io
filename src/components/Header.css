@@ -9,14 +9,25 @@
   z-index: 1000;
 }
 
+.header .container {
+  padding-left: 30px; /* 左から30pxの余白を設定 */
+  padding-right: 30px; /* 右から30pxの余白を設定 */
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none; /* 最大幅の制限を解除 */
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 0;
 }
 
 .logo-container {
   flex: 0 0 auto;
+  margin-left: 0;
+  padding-left: 0; /* containerにすでに10pxのパディングがあるため、ここでは0に */
 }
 
 .logo {
@@ -26,6 +37,7 @@
 
 .nav {
   flex: 1 1 auto;
+  padding-right: 0; /* コンテナにすでに右余白があるため、ここでは0に */
 }
 
 .nav-list {
@@ -64,6 +76,19 @@
   .header-container {
     flex-direction: column;
     gap: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .header .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .logo-container {
+    align-self: flex-start;
+    margin-left: 0;
+    padding-left: 0;
   }
   
   .nav-list {

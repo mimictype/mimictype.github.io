@@ -1,15 +1,15 @@
-import './Services.css';
+import './Service.css';
 
-function Services() {
+function Service() {
   return (
-    <section id="services" className="section services-section">
+    <section id="service" className="section service-section">
       <div className="container">
-        <h2 className="section-title">Services</h2>
+        <h2 className="section-title">Service</h2>
         
-        <div className="services-container">
+        <div className="service-container">
           <div className="subsection">
             <h3 className="subsection-title">作れるもの</h3>
-            <div className="services-showcase">
+            <div className="service-showcase">
               <div className="service-card-large">
                 <div className="service-icon">
                   <i className="service-icon-hardware"></i>
@@ -137,4 +137,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default Service;

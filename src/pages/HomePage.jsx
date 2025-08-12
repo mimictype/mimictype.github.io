@@ -13,16 +13,13 @@ function HomePage() {
         <div className="section hero-section">
           <div className="container">
             <div className="hero-content">
-              <Link to="/" className="logo-link">
-                <h1 className="hero-title">mimictype</h1>
-              </Link>
-              <p className="hero-subtitle">目的はひとつ、方法は無限。</p>
-              <div className="hero-buttons">
-                <Link to="/about" className="hero-button">About</Link>
-                <Link to="/services" className="hero-button">Services</Link>
-                <Link to="/works" className="hero-button">Works</Link>
-                <Link to="/contact" className="hero-button">Contact</Link>
+              <div className="hero-text-section">
+                <p className="hero-subtitle">アイデアを、形にしよう</p>
+                <p className="hero-subcopy">やりたいことを伝えるだけ。仕組みと実装はお任せください！</p>
               </div>
+              {/* <div className="hero-buttons">
+                <Link to="/works" className="hero-button">実績を見る</Link>
+              </div> */}
             </div>
           </div>
         </div>

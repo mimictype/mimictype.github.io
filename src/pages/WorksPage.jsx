@@ -10,7 +10,7 @@ function WorksPage() {
     <div className="app">
       <Header />
       <main className="main">
-        <section className="section works-section" style={{ paddingTop: '120px' }}>
+        <section className="section works-section" style={{ paddingTop: '40px' }}>
           <div className="container">
             <h2 className="section-title">Works</h2>
             

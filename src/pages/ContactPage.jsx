@@ -8,7 +8,7 @@ function ContactPage() {
     <div className="app">
       <Header />
       <main className="main">
-        <section id="contact" className="section contact-section" style={{ paddingTop: '120px' }}>
+        <section id="contact" className="section contact-section" style={{ paddingTop: '40px' }}>
           <div className="container">
             <h2 className="section-title">Contact</h2>
             

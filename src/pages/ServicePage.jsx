@@ -1,21 +1,21 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../App.css';
-import '../components/Services.css';
+import '../components/Service.css';
 
-function ServicesPage() {
+function ServicePage() {
   return (
     <div className="app">
       <Header />
       <main className="main">
-        <section id="services" className="section services-section" style={{ paddingTop: '120px' }}>
+        <section id="service" className="section service-section" style={{ paddingTop: '40px' }}>
           <div className="container">
-            <h2 className="section-title">Services</h2>
+            <h2 className="section-title">Service</h2>
             
-            <div className="services-container">
+            <div className="service-container">
               <div className="subsection">
                 <h3 className="subsection-title">作れるもの</h3>
-                <div className="services-showcase">
+                <div className="service-showcase">
                   <div className="service-card-large">
                     <div className="service-icon">
                       <i className="service-icon-hardware"></i>
@@ -146,4 +146,4 @@ function ServicesPage() {
   );
 }
 
-export default ServicesPage;
+export default ServicePage;

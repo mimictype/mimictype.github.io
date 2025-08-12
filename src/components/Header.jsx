@@ -20,7 +20,7 @@ function Header() {
               <Link to="/about" className={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>About</Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className={`nav-link ${currentPath === '/services' ? 'active' : ''}`}>Services</Link>
+              <Link to="/service" className={`nav-link ${currentPath === '/service' ? 'active' : ''}`}>Service</Link>
             </li>
             <li className="nav-item">
               <Link to="/works" className={`nav-link ${currentPath.includes('/works') ? 'active' : ''}`}>Works</Link>

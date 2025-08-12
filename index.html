@@ -2,12 +2,23 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="mimictype - 目的はひとつ。方法は無限。" />
     <title>mimictype</title>
-    <script type="module" crossorigin src="./assets/index-Dg-yobe2.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BrvetNV7.css">
+    <script>
+      // 404.htmlからのリダイレクトを処理
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-D5ToRBcs.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-DfzTkRRf.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-jO6gmnBu.css">
   </head>
   <body>
     <div id="root"></div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Scene3D from '../components/Scene3D';
 import '../App.css';
 import './HomePage.css';
 
@@ -11,6 +12,7 @@ function HomePage() {
       <Header />
       <main className="main">
         <div className="section hero-section">
+          <Scene3D />
           <div className="container">
             <div className="hero-content">
               <div className="hero-text-section">

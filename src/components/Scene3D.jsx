@@ -1,4 +1,4 @@
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid } from '@react-three/drei';
 import { useRef, Suspense, useEffect, useState } from 'react';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
@@ -83,10 +83,55 @@ function LoadingFallback() {
 
 function Scene3D() {
   const [lightIsOn, setLightIsOn] = useState(true); // シーン全体で電球の状態を管理
+  const controlsRef = useRef();
+  const lastInteractionTime = useRef(Date.now());
+  const autoRotateStarted = useRef(false);
+  const userInteracting = useRef(false);
 
   // 電球のオン/オフ状態を更新する関数
   const updateLightState = (isOn) => {
     setLightIsOn(isOn);
+  };
+
+  // 自動回転制御のコンポーネント
+  function AutoRotateController() {
+    useFrame(() => {
+      if (controlsRef.current) {
+        const currentTime = Date.now();
+        const timeSinceLastInteraction = currentTime - lastInteractionTime.current;
+        
+        // 3秒（3000ms）以上操作がない場合、自動回転を開始
+        if (timeSinceLastInteraction > 1000 && !userInteracting.current) {
+          if (!autoRotateStarted.current) {
+            controlsRef.current.autoRotate = true;
+            controlsRef.current.autoRotateSpeed = 1.0; // 回転速度を上げる
+            autoRotateStarted.current = true;
+          }
+        } else if (userInteracting.current) {
+          // ユーザーが操作中の場合、自動回転を停止
+          if (autoRotateStarted.current) {
+            controlsRef.current.autoRotate = false;
+            autoRotateStarted.current = false;
+          }
+        }
+        
+        // OrbitControlsを更新
+        controlsRef.current.update();
+      }
+    });
+    return null;
+  }
+
+  // ユーザーの操作開始を検出する関数
+  const handleUserInteractionStart = () => {
+    lastInteractionTime.current = Date.now();
+    userInteracting.current = true;
+  };
+
+  // ユーザーの操作終了を検出する関数
+  const handleUserInteractionEnd = () => {
+    lastInteractionTime.current = Date.now();
+    userInteracting.current = false;
   };
 
   return (
@@ -155,26 +200,22 @@ function Scene3D() {
         <Suspense fallback={<LoadingFallback />}>
           <LightBulbModel onLightToggle={updateLightState} />
         </Suspense>
-        {/* 光の効果を確認するためのキューブ
-        <mesh position={[0, 0, 30]}>
-          <boxGeometry args={[60, 60, 2]} />
-          <meshStandardMaterial color="#cccccc" />
-        </mesh>
-        <mesh position={[-7, 2, 0]}>
-          <boxGeometry args={[2, 60, 2]} />
-          <meshStandardMaterial color="#cccccc" />
-        </mesh>
-        <mesh position={[10, 2, 0]}>
-          <boxGeometry args={[2, 60, 2]} />
-          <meshStandardMaterial color="#cccccc" />
-        </mesh> */}
+        <AutoRotateController />
+
         <OrbitControls 
+          ref={controlsRef}
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
+          enableDamping={true}
+          dampingFactor={0.05}
           minDistance={5}
           maxDistance={300}
           target={[0, 25, 0]}
+          autoRotate={false}
+          autoRotateSpeed={1.0}
+          onStart={handleUserInteractionStart}
+          onEnd={handleUserInteractionEnd}
         />
       </Canvas>
     </div>

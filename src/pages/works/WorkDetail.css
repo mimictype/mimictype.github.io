@@ -1,0 +1,85 @@
+.work-detail-section {
+  padding: 80px 0;
+}
+
+.work-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.work-icon-large {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  color: var(--brand-color);
+  margin-bottom: 20px;
+}
+
+.work-detail-content {
+  flex: 1;
+}
+
+.work-description {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.work-technologies h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--brand-color);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tech-tag {
+  background-color: rgba(150, 150, 237, 0.15);
+  color: var(--brand-color);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: rgba(150, 150, 237, 0.3);
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--brand-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(211, 150, 237, 0.8);
+}
+
+@media (min-width: 768px) {
+  .work-detail-container {
+    flex-direction: row;
+  }
+  
+  .work-icon-large {
+    width: 200px;
+    margin-bottom: 0;
+  }
+}

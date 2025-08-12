@@ -1,0 +1,129 @@
+/* Works.css */
+
+.works-section {
+  padding: 3rem 0;
+}
+
+.works-container {
+  margin-top: 40px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.achievement-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-link {
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(170, 170, 237, 0.1);
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--brand-color);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(150, 150, 237, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.achievement-icon i {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.achievement-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--brand-color);
+}
+
+.achievement-description {
+  color: var(--text-color);
+  margin-bottom: 16px;
+  line-height: 1.6;
+  flex-grow: 1;
+  opacity: 0.9;
+}
+
+.achievement-tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background-color: rgba(150, 150, 237, 0.15);
+  color: var(--brand-color);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: rgba(150, 150, 237, 0.3);
+}
+
+@media (max-width: 768px) {
+  .achievement-link {
+    padding: 1.5rem;
+  }
+  
+  .achievement-icon {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .achievement-icon i {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

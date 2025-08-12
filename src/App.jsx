@@ -1,41 +1,44 @@
-import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import About from './components/About';
-import Contact from './components/Contact';
-import Services from './components/Services';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import WorksPage from './pages/WorksPage';
+import ContactPage from './pages/ContactPage';
+import WorkDetail from './pages/works/WorkDetail';
 import './App.css';
 
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+// リダイレクト処理を行うコンポーネント
+function RedirectHandler() {
+  const navigate = useNavigate();
   
   useEffect(() => {
-    // ロード完了を模擬
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
+    // セッションストレージからリダイレクト先のURLを取得
+    const redirectUrl = sessionStorage.getItem('redirectUrl');
+    if (redirectUrl) {
+      // リダイレクト先URLがあればナビゲーション
+      sessionStorage.removeItem('redirectUrl');
+      navigate(redirectUrl);
+    }
+  }, [navigate]);
   
-  if (isLoading) {
-    return (
-      <div className="loading-screen">
-        <div className="loading-spinner"></div>
-      </div>
-    );
-  }
-  
+  return null;
+}
+
+function App() {
   return (
-    <div className="app">
-      <Header />
-      <main className="main">
-        <About />
-        <Contact />
-        <Services />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <RedirectHandler />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/works" element={<WorksPage />} />
+        <Route path="/works/:workId" element={<WorkDetail />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 

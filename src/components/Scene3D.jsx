@@ -3,15 +3,21 @@ import { OrbitControls, Grid } from '@react-three/drei';
 import { useRef, Suspense, useEffect, useState } from 'react';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import * as THREE from 'three';
+import { radians } from 'three/tsl';
 
 function LightBulbModel({ onLightToggle }) {
-  const fbx = useLoader(FBXLoader, '/denki.FBX');
+  // 個別のパーツをロード
+  const topFbx = useLoader(FBXLoader, '/denkyu_Top.fbx');
+  const bottomFbx = useLoader(FBXLoader, '/denkyu_Bottom.fbx');
+  const helixFbx = useLoader(FBXLoader, '/denkyu_Helix.fbx');
+  
   const meshRef = useRef();
   const [isOn, setIsOn] = useState(true); // 電球の状態を管理するstate
 
-  // 電球モデルのスケールと位置を調整
-  fbx.scale.setScalar(0.3); // FBXファイルのサイズに応じて調整
-  fbx.position.set(0, 2, 0);
+  // 各パーツのスケールを調整
+  topFbx.scale.setScalar(0.3);
+  bottomFbx.scale.setScalar(0.3);
+  helixFbx.scale.setScalar(0.3);
 
   // クリック（タップ）時の処理
   const handleClick = (event) => {
@@ -23,51 +29,94 @@ function LightBulbModel({ onLightToggle }) {
     }
   };
 
-  // モデルのマテリアルを透明にして発光効果を追加
+    // モデルのマテリアルを設定
   useEffect(() => {
-    if (fbx) {
-      fbx.traverse((child) => {
-        if (child.isMesh) {
-          // 電球のガラス部分を透明にする
-          if (child.material) {
-            // 既存のマテリアルの色を保持
-            const originalColor = child.material.color ? child.material.color.clone() : new THREE.Color('#ffffff');
-            
-            child.material = new THREE.MeshPhysicalMaterial({
-              color: originalColor,
-              transparent: true,
-              opacity: 0.6, // 不透明度を上げて見やすくする
-              transmission: 0.7, // 透過性を少し下げる
-              roughness: 0.2, // 粗さを少し上げて光を受けやすくする
-              metalness: 0.1,
-              emissive: isOn ? '#ffaa00' : '#333333', // 点灯状態によって発光色を変更
-              emissiveIntensity: isOn ? 0.3 : 0, // 点灯状態によって発光強度を変更
-              clearcoat: 1.0, // クリアコートを追加してガラス感を演出
-              clearcoatRoughness: 0.1
-            });
+    const applyMaterial = (fbx, partType) => {
+      if (fbx) {
+        fbx.traverse((child) => {
+          if (child.isMesh) {
+            if (child.material) {
+              const originalColor = child.material.color ? child.material.color.clone() : new THREE.Color('#ffffff');
+              
+              if (partType === 'glass') {
+                // ガラス部分（Top）はより半透明で光の反射がある質感に
+                child.material = new THREE.MeshPhysicalMaterial({
+                  color: originalColor,
+                  transparent: true,
+                  opacity: 0.1,                    // より透明に
+                  transmission: 0.9,              // 透過率をさらに上げる
+                  roughness: 0.1,                  // 表面の粗さを少し上げる
+                  metalness: 0.0,                  // 金属感を無くす
+                  reflectivity: 0.5,               // 反射率を下げる
+                  ior: 1.2,                        // 屈折率を下げる
+                  side: THREE.DoubleSide,          // 両面描画を有効に
+                  depthWrite: false,               // 深度バッファへの書き込みを無効に
+                  emissiveIntensity: isOn ? 0.1 : 0,
+                  clearcoat: 0.5,                  // クリアコートを減らす
+                  clearcoatRoughness: 0.2,         // クリアコートの粗さを上げる
+                  envMapIntensity: 1.0             // 環境マップの強度を適度に
+                });
+              } else if (partType === 'helix') {
+                // ヘリックス部分（フィラメント）は発光する質感に
+                child.material = new THREE.MeshStandardMaterial({
+                  color: new THREE.Color('#232323'),  // 銀色の基本色
+                  metalness: 0.9,
+                  roughness: 0.2,
+                  emissive: isOn ? '#ffcc00' : '#111111',
+                  emissiveIntensity: isOn ? 2.0 : 0
+                });
+              } else {
+                // 金属部分（Bottom）- より金属的な銀色に
+                child.material = new THREE.MeshStandardMaterial({
+                  color: new THREE.Color('#e8e8e8'),  // 銀色の基本色
+                  metalness: 0.9,                     // より金属的に
+                  roughness: 0.2,                     // より滑らかに
+                  envMapIntensity: 1.2,               // 環境マップの反射を強く
+                  emissive: '#000000',                // 発光なし
+                });
+              }
+            }
           }
-        }
-      });
-    }
-  }, [fbx, isOn]); // isOnが変更されたときにも再実行
+        });
+      }
+    };
+
+    applyMaterial(topFbx, 'glass');      // トップ部分はガラス
+    applyMaterial(bottomFbx, 'metal');    // ボトム部分は金属
+    applyMaterial(helixFbx, 'helix');     // ヘリックス部分はフィラメント
+  }, [topFbx, bottomFbx, helixFbx, isOn]);
 
   return (
     <group 
-      position={[0, 20, 0]} 
+      position={[0, 15, 0]} 
       onClick={handleClick}
       onPointerOver={() => document.body.style.cursor = 'pointer'} 
       onPointerOut={() => document.body.style.cursor = 'auto'}
     >
-      <primitive ref={meshRef} object={fbx} />
+      {/* 電球のトップ部分（ガラス） */}
+      <primitive ref={meshRef} object={topFbx} position={[0, 2, 0]} />
+      
+      {/* 電球のボトム部分（金属ベース） */}
+      <primitive object={bottomFbx} position={[0, 2, 0]} />
+      
+      {/* 電球のヘリックス部分（フィラメント） */}
+      <primitive object={helixFbx} position={[0, 2, 0]} />
+      
       {/* 電球の中心部に光源を配置 - 点灯時のみ表示 */}
       {isOn && (
-        <pointLight intensity={400} distance={70} decay={2} color="#ffaa00" position={[0, 8, 0]} />
+        <>
+          {/* メインの光源 */}
+          {/* <pointLight intensity={300} distance={70} decay={2} color="#ffaa00" position={[0, 8, 0]} /> */}
+          
+          {/* ヘリックス(フィラメント)からの光源 */}
+          <pointLight intensity={1500} distance={30} decay={2.5} color="#ffcc22" position={[0, 10, 0]} />
+          <pointLight intensity={150} distance={50} decay={2.5} color="#ffcc22" position={[0, 15, 0]} />
+          <pointLight intensity={150} distance={50} decay={2.5} color="#ffcc22" position={[0, 10, 5]} />
+          <pointLight intensity={150} distance={50} decay={2.5} color="#ffcc22" position={[0, 10, -5]} />
+          <pointLight intensity={150} distance={10} decay={2.5} color="#ffcc22" position={[5, 10, 0]} />
+          <pointLight intensity={150} distance={10} decay={2.5} color="#ffcc22" position={[-5, 10, 0]} />
+        </>
       )}
-      {/* フィラメント効果用の追加光源 - 点灯時のみ表示 */}
-      <mesh position={[0, 3, 0]}>
-        <sphereGeometry args={[0.15, 8, 8]} />
-        <meshBasicMaterial color={isOn ? "#ffaa00" : "#333333"} transparent opacity={isOn ? 0.9 : 0.5} />
-      </mesh>
     </group>
   );
 }
@@ -197,6 +246,11 @@ function Scene3D() {
           <planeGeometry args={[300, 300]} />
           <meshStandardMaterial color="#262626" />
         </mesh>
+        {/* 看板 */}
+        {/* <mesh position={[5, 30, 0]}>
+          <boxGeometry args={[1, 30, 30]}  />
+          <meshStandardMaterial color="#454545" opacity={1} />
+        </mesh> */}
         <Suspense fallback={<LoadingFallback />}>
           <LightBulbModel onLightToggle={updateLightState} />
         </Suspense>

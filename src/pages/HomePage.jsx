@@ -14,15 +14,15 @@ function HomePage() {
         <div className="section hero-section">
           <Scene3D />
           <div className="container">
-            <div className="hero-content">
               <div className="hero-text-section">
                 <p className="hero-subtitle">アイデアを、形にしよう</p>
                 <p className="hero-subcopy">やりたいことを伝えるだけ。仕組みと実装はお任せください！</p>
               </div>
+            {/* <div className="hero-content"> */}
               {/* <div className="hero-buttons">
                 <Link to="/works" className="hero-button">実績を見る</Link>
               </div> */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </main>

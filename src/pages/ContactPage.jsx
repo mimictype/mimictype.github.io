@@ -10,8 +10,6 @@ function ContactPage() {
       <main className="main">
         <section id="contact" className="section contact-section" style={{ paddingTop: '40px' }}>
           <div className="container">
-            <h2 className="section-title">Contact</h2>
-            
             <div className="contact-container">
               <div className="contact-info">
                 <p className="contact-email">

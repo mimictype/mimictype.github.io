@@ -13,10 +13,18 @@
 .main {
   flex: 1;
   padding: 0; /* パディングを削除してスクロールを防止 */
+  padding-top: var(--header-height); /* ヘッダーの高さ分のパディングを追加 */
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 120px; /* モバイルでヘッダーが高くなる場合の調整 */
+  }
 }
 
 .section {
   margin-bottom: 4rem;
+  scroll-margin-top: var(--header-height); /* アンカーリンク用のスクロールマージン */
 }
 
 .section-title {

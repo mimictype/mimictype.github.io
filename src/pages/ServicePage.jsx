@@ -10,8 +10,6 @@ function ServicePage() {
       <main className="main">
         <section id="service" className="section service-section" style={{ paddingTop: '40px' }}>
           <div className="container">
-            <h2 className="section-title">Service</h2>
-            
             <div className="service-container">
               <div className="subsection">
                 <h3 className="subsection-title">作れるもの</h3>

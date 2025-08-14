@@ -1,5 +1,6 @@
 .contact-section {
   padding: 3rem 0;
+  padding-top: 1rem; /* セクションタイトルのためのパディング調整 */
   background-color: rgba(211, 150, 237, 0.05);
 }
 

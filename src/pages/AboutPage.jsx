@@ -10,8 +10,6 @@ function AboutPage() {
       <main className="main">
         <section id="about" className="section about-section" style={{ paddingTop: '40px' }}>
           <div className="container">
-            <h2 className="section-title">About</h2>
-            
             <div className="subsection">
               <h3 className="subsection-title">名前の意味</h3>
               

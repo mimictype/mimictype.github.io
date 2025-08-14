@@ -2,6 +2,7 @@
 
 .works-section {
   padding: 3rem 0;
+  padding-top: 1rem; /* セクションタイトルのためのパディング調整 */
 }
 
 .works-container {

@@ -12,8 +12,6 @@ function WorksPage() {
       <main className="main">
         <section className="section works-section" style={{ paddingTop: '40px' }}>
           <div className="container">
-            <h2 className="section-title">Works</h2>
-            
             <div className="works-container">
               <div className="achievements-grid">
                 {worksData.map((work) => (

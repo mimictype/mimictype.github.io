@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -28,6 +29,7 @@ function RedirectHandler() {
 function App() {
   return (
     <Router>
+      <AnalyticsHandler />
       <RedirectHandler />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -40,6 +42,18 @@ function App() {
       </Routes>
     </Router>
   );
+// ページ遷移ごとにGoogle Analyticsへページビューを送信するコンポーネント
+function AnalyticsHandler() {
+  const location = useLocation();
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-SPS3WMJX6H', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+  return null;
+}
 }
 
 export default App;

@@ -1,62 +1,3 @@
-.hero-section {
-  height: calc(100vh); /* ヘッダーとフッターの高さを考慮した高さに調整 */
-  display: flex;
-  align-items: flex-end; /* 下部寄せに変更 */
-  justify-content: flex-start; /* 左寄せに変更 */
-  text-align: left;
-  background-color: var(--background-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section .container {
-  height: 100%;
-  display: flex;
-  align-items: flex-end; /* 下部寄せに変更 */
-  padding-left: 30px; /* 左から10pxの余白を設定 */
-  margin-left: 0; /* 左マージンも削除 */
-  max-width: none; /* 最大幅の制限を解除 */
-}
-
-.hero-content {
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
-  margin: 0;
-  margin-right: auto;
-  padding: 4rem;
-  padding-left: 0; /* containerにすでに10pxのパディングがあるため、ここでは0に */
-  position: relative;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.hero-title {
-  font-size: 4rem;
-  color: var(--brand-color);
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  cursor: pointer;
-}
-
-.logo-link {
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.logo-link:hover {
-  opacity: 0.8;
-  transform: scale(1.02);
-}
 
 .hero-text-section {
   padding-left: 0px;
@@ -64,7 +5,7 @@
   position: absolute;
   bottom: 0px;
   left: 30px;
-  width: calc(100% - 8rem); /* 左右の余白を考慮した幅 */
+  width: calc(100% - 30px); /* 右の余白を考慮した幅 */
   z-index: 20;
   pointer-events: auto;
   /* 横配置を維持するための追加スタイル */
@@ -73,9 +14,52 @@
 }
 
 .hero-subtitle {
-  font-size: 5rem;
+  font-size: 6vw;
   color: var(--brand-color);
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+  font-weight: bold;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+  z-index: 2;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  /* 縦配置を防ぐために追加 */
+  white-space: normal;
+  display: block;
+}
+
+.hero-subcopy {
+  font-size: 3.2vw;
+  color: var(--accent-color);
+  margin-bottom: 6rem;
+  opacity: 0.7;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+  text-align: left;
+  padding-left: 0;
+  z-index: 2;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  /* 縦配置を防ぐために追加 */
+  white-space: normal;
+  display: block;
+}
+.hero-subtitle-mobile {
+  font-size: 10vw;
+  color: var(--brand-color);
+  font-weight: bold;
+  margin-bottom: 0.7rem;
   margin-top: 1rem;
   opacity: 0.8;
   user-select: none;
@@ -90,14 +74,14 @@
   position: relative;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   /* 縦配置を防ぐために追加 */
-  white-space: nowrap;
+  white-space: normal;
   display: block;
 }
 
-.hero-subcopy {
-  font-size: 1.5rem;
+.hero-subcopy-mobile {
+  font-size: 5vw;
   color: var(--accent-color);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   opacity: 0.7;
   user-select: none;
   -webkit-user-select: none;
@@ -110,9 +94,10 @@
   position: relative;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   /* 縦配置を防ぐために追加 */
-  white-space: nowrap;
+  white-space: normal;
   display: block;
 }
+
 
 .hero-buttons {
   display: flex;
@@ -138,21 +123,3 @@
   background-color: rgba(74, 108, 247, 0.8);
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 2rem 0;
-  }
-  
-  .hero-text-section {
-    padding-left: 10px; /* モバイルでも10pxの余白を維持 */
-  }
-  
-  .hero-subtitle {
-    font-size: 3.5rem;
-  }
-  
-  .hero-subcopy {
-    font-size: 1rem;
-  }
-}

@@ -88,7 +88,7 @@ function LightBulbModel({ onLightToggle }) {
 
   return (
     <group 
-      position={[0, 15, 0]} 
+      position={[0, 5, 0]} 
       onClick={handleClick}
       onPointerOver={() => document.body.style.cursor = 'pointer'} 
       onPointerOut={() => document.body.style.cursor = 'auto'}
@@ -171,16 +171,21 @@ function Scene3D() {
     return null;
   }
 
-  // ユーザーの操作開始を検出する関数
-  const handleUserInteractionStart = () => {
-    lastInteractionTime.current = Date.now();
-    userInteracting.current = true;
+  // ユーザーの操作開始を検出する関数（ドラッグ・ズームのみで一時停止）
+  const handleUserInteractionStart = (event) => {
+    // event.type: 'mousedown', 'touchstart', 'wheel' など
+    if (event && (event.type === 'mousedown' || event.type === 'touchstart' || event.type === 'wheel')) {
+      lastInteractionTime.current = Date.now();
+      userInteracting.current = true;
+    }
   };
 
   // ユーザーの操作終了を検出する関数
-  const handleUserInteractionEnd = () => {
-    lastInteractionTime.current = Date.now();
-    userInteracting.current = false;
+  const handleUserInteractionEnd = (event) => {
+    if (event && (event.type === 'mouseup' || event.type === 'touchend' || event.type === 'wheel')) {
+      lastInteractionTime.current = Date.now();
+      userInteracting.current = false;
+    }
   };
 
   return (
@@ -194,7 +199,7 @@ function Scene3D() {
       pointerEvents: 'auto'
     }}>
       <Canvas
-        camera={{ position: [15, 30, 15], fov: 75 }}
+        camera={{ position: [15, 15, 15], fov: 75 }}
         style={{ 
           width: '100%',
           height: '100%',
@@ -265,7 +270,7 @@ function Scene3D() {
           dampingFactor={0.05}
           minDistance={5}
           maxDistance={300}
-          target={[0, 25, 0]}
+          target={[0, 10, 0]}
           autoRotate={false}
           autoRotateSpeed={1.0}
           onStart={handleUserInteractionStart}

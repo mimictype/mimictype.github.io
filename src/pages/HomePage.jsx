@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Scene3D from '../components/Scene3D';
@@ -6,26 +6,36 @@ import '../App.css';
 import './HomePage.css';
 
 function HomePage() {
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
-    <div className="app">
+    <div className="app no-scroll-layout">
       <Header />
-      <main className="main">
-        <div className="section hero-section">
-          <Scene3D />
-          <div className="container">
-              <div className="hero-text-section">
-                <p className="hero-subtitle">アイデアを、形にしよう</p>
+      <div className="scene3d-full" >
+        <Scene3D />
+        <div className="container hero-overlay-text">
+          <div className="hero-text-section">
+            {isMobile ? (
+              <>
+                <p className="hero-subtitle-mobile">アイデアを、<br/>カタチにしよう！</p>
+                <p className="hero-subcopy-mobile">やりたいことを伝えるだけ。<br/>仕組みと実装はお任せください！</p>
+              </>
+            ) : (
+              <>
+                <p className="hero-subtitle">アイデアを、カタチにしよう！</p>
                 <p className="hero-subcopy">やりたいことを伝えるだけ。仕組みと実装はお任せください！</p>
-              </div>
-            {/* <div className="hero-content"> */}
-              {/* <div className="hero-buttons">
-                <Link to="/works" className="hero-button">実績を見る</Link>
-              </div> */}
-            {/* </div> */}
+              </>
+            )}
           </div>
         </div>
-      </main>
+      </div>
       <Footer />
     </div>
   );

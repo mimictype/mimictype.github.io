@@ -21,8 +21,8 @@ function AboutPage() {
                 <div className="name-item">
                   <h4 className="name-title">mimic（ミミック）</h4>
                   <p className="name-description">
-                    既存の技術や要素を巧みに組み合わせ、あたかも本物のように機能するものを意味する。
-                    ゼロからすべてを作らなくても、手元にあるものでそれらしく動かすことはできる。
+                    既存の技術や要素を巧みに組み合わせ、あたかも本物のように機能するものを意味する。<br />
+                    ゼロからすべてを作らなくても、手元にあるものでそれらしく動かすことはできる。<br />
                     mimictypeの思想の根幹には、「目的達成のためなら、見せかけでも構わない」という柔軟な実現主義がある。
                   </p>
                 </div>
@@ -30,8 +30,8 @@ function AboutPage() {
                 <div className="name-item">
                   <h4 className="name-title">type（タイプ）</h4>
                   <p className="name-description">
-                    IT業界で広く使われる「型（データ型）」を指す専門用語。
-                    この言葉を加えることで、技術・開発・IT分野との結びつきを自然に連想させる名前となっている。
+                    IT業界で広く使われる「型（データ型）」を指す専門用語。<br />
+                    この言葉を加えることで、技術・開発・IT分野との結びつきを自然に連想させる名前となっている。<br />
                     また、Prototype（プロトタイプ）の進化形という意味合いも内包し、「素早く、かたちにする」というスタンスを象徴している。
                   </p>
                 </div>
@@ -59,7 +59,7 @@ function AboutPage() {
                     <h4 className="representative-name">林　翔</h4>
                     <h4 className="representative-name-yomi">Hayashi Sho</h4>
                     <p className='representative-text'>s@mimictype.com</p>
-                    <p className='representative-text'>ITの力でこの世界を変えたい</p>
+                    <p className='representative-text'>ITの力で世界を変える</p>
                     
                     
                   </div>

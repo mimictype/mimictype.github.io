@@ -130,7 +130,7 @@ function LoadingFallback() {
   );
 }
 
-function Scene3D() {
+function Scene3D({ onLightStateChange }) {
   const [lightIsOn, setLightIsOn] = useState(true); // シーン全体で電球の状態を管理
   const controlsRef = useRef();
   const lastInteractionTime = useRef(Date.now());
@@ -140,6 +140,9 @@ function Scene3D() {
   // 電球のオン/オフ状態を更新する関数
   const updateLightState = (isOn) => {
     setLightIsOn(isOn);
+    if (onLightStateChange) {
+      onLightStateChange(isOn);
+    }
   };
 
   // 自動回転制御のコンポーネント

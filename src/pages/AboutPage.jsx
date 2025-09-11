@@ -53,7 +53,17 @@ function AboutPage() {
             <div className="subsection">
               <h3 className="subsection-title">代表紹介</h3>
               <div className="representative">
-                <h4 className="representative-name">林　翔</h4>
+                <div className="representative-flex">
+                  <img src="/sho2.jpg" alt="林 翔" className="representative-photo" />
+                  <div className='representative-info'>
+                    <h4 className="representative-name">林　翔</h4>
+                    <h4 className="representative-name-yomi">Hayashi Sho</h4>
+                    <p className='representative-text'>s@mimictype.com</p>
+                    <p className='representative-text'>ITの力でこの世界を変えたい</p>
+                    
+                    
+                  </div>
+                </div>
               </div>
             </div>
           </div>

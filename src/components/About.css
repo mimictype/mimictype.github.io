@@ -13,7 +13,6 @@
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  border-left: 4px solid var(--brand-color);
 }
 
 .name-title {
@@ -28,7 +27,7 @@
 
 .philosophy {
   padding: 2rem;
-  background-color: rgba(150, 180, 237, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   margin-top: 1rem;
 }
@@ -47,7 +46,55 @@
   text-align: center;
 }
 
+.representative-flex {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.representative-photo {
+  width: 160px;
+  border-radius: 8px;
+  margin-bottom: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .representative-photo {
+    width: 100px;
+  }
+}
+
 .representative-name {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--text-color);
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .representative-name {
+    font-size: 1.2rem;
+  }
+}
+
+.representative-name-yomi {
+  font-size: 0.8rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .representative-name-yomi {
+    font-size: 0.7rem;
+  }
+}
+.representative-text {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .representative-text {
+    font-size: 0.8rem;
+  }
 }

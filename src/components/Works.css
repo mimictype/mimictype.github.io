@@ -10,7 +10,6 @@
 }
 
 .achievements-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 40px;
@@ -34,6 +33,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+/* Remove underline on hover */
+.achievement-link:hover {
+  text-decoration: none;
+  border-bottom: none;
 }
 
 .achievement-item:hover {
@@ -85,6 +90,7 @@
   line-height: 1.6;
   flex-grow: 1;
   opacity: 0.9;
+
 }
 
 .achievement-tech-container {

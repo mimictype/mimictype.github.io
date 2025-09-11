@@ -5,14 +5,14 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import * as THREE from 'three';
 import { radians } from 'three/tsl';
 
-function LightBulbModel({ onLightToggle }) {
+function LightBulbModel({ onLightToggle, isOn }) {
   // 個別のパーツをロード
   const topFbx = useLoader(FBXLoader, '/denkyu_Top.fbx');
   const bottomFbx = useLoader(FBXLoader, '/denkyu_Bottom.fbx');
   const helixFbx = useLoader(FBXLoader, '/denkyu_Helix.fbx');
   
   const meshRef = useRef();
-  const [isOn, setIsOn] = useState(true); // 電球の状態を管理するstate
+  // isOnは親から受け取る
 
   // 各パーツのスケールを調整
   topFbx.scale.setScalar(0.3);
@@ -21,11 +21,9 @@ function LightBulbModel({ onLightToggle }) {
 
   // クリック（タップ）時の処理
   const handleClick = (event) => {
-    event.stopPropagation(); // イベントの伝播を停止
-    const newState = !isOn;
-    setIsOn(newState); // 状態を反転
+    event.stopPropagation();
     if (onLightToggle) {
-      onLightToggle(newState); // 親コンポーネントに状態を通知
+      onLightToggle(!isOn); // 親コンポーネントに状態を通知
     }
   };
 
@@ -131,7 +129,14 @@ function LoadingFallback() {
 }
 
 function Scene3D({ onLightStateChange }) {
-  const [lightIsOn, setLightIsOn] = useState(true); // シーン全体で電球の状態を管理
+  const [lightIsOn, setLightIsOn] = useState(false); // 初期状態はオフ
+  // 読み込み時に一瞬オフ→オンに切り替える演出
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLightIsOn(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
   const controlsRef = useRef();
   const lastInteractionTime = useRef(Date.now());
   const autoRotateStarted = useRef(false);
@@ -260,7 +265,7 @@ function Scene3D({ onLightStateChange }) {
           <meshStandardMaterial color="#454545" opacity={1} />
         </mesh> */}
         <Suspense fallback={<LoadingFallback />}>
-          <LightBulbModel onLightToggle={updateLightState} />
+          <LightBulbModel onLightToggle={updateLightState} isOn={lightIsOn} />
         </Suspense>
         <AutoRotateController />
 

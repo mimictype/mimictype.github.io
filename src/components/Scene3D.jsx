@@ -134,7 +134,7 @@ function Scene3D({ onLightStateChange }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLightIsOn(true);
-    }, 1000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
   const controlsRef = useRef();

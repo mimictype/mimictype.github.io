@@ -5,11 +5,30 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import * as THREE from 'three';
 import { radians } from 'three/tsl';
 
-function LightBulbModel({ onLightToggle, isOn }) {
+function LightBulbModel({ onLightToggle, isOn, onModelLoaded }) {
   // 個別のパーツをロード
   const topFbx = useLoader(FBXLoader, '/denkyu_Top.fbx');
   const bottomFbx = useLoader(FBXLoader, '/denkyu_Bottom.fbx');
   const helixFbx = useLoader(FBXLoader, '/denkyu_Helix.fbx');
+
+  // ロード開始時刻を記録
+  const [loadStartTime] = useState(() => Date.now());
+  // すべてのFBXロード完了時に通知（最低2秒待つ）
+  useEffect(() => {
+    if (
+      topFbx !== undefined && bottomFbx !== undefined && helixFbx !== undefined &&
+      typeof onModelLoaded === 'function'
+    ) {
+      const elapsed = Date.now() - loadStartTime;
+      if (elapsed < 1000) {
+        setTimeout(() => {
+          onModelLoaded();
+        }, 1000 - elapsed);
+      } else {
+        onModelLoaded();
+      }
+    }
+  }, [topFbx, bottomFbx, helixFbx, onModelLoaded, loadStartTime]);
   
   const meshRef = useRef();
   // isOnは親から受け取る
@@ -128,15 +147,20 @@ function LoadingFallback() {
   );
 }
 
-function Scene3D({ onLightStateChange }) {
+function Scene3D({ onLightStateChange, onSceneLoaded }) {
   const [lightIsOn, setLightIsOn] = useState(false); // 初期状態はオフ
-  // 読み込み時に一瞬オフ→オンに切り替える演出
-  useEffect(() => {
-    const timer = setTimeout(() => {
+  // モデルロード完了時に点灯タイマーを開始
+  const handleModelLoaded = () => {
+    setTimeout(() => {
       setLightIsOn(true);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
+      if (onLightStateChange) {
+        onLightStateChange(true);
+      }
+    }, 2000);
+    if (onSceneLoaded) {
+      onSceneLoaded();
+    }
+  };
   const controlsRef = useRef();
   const lastInteractionTime = useRef(Date.now());
   const autoRotateStarted = useRef(false);
@@ -265,7 +289,7 @@ function Scene3D({ onLightStateChange }) {
           <meshStandardMaterial color="#454545" opacity={1} />
         </mesh> */}
         <Suspense fallback={<LoadingFallback />}>
-          <LightBulbModel onLightToggle={updateLightState} isOn={lightIsOn} />
+          <LightBulbModel onLightToggle={updateLightState} isOn={lightIsOn} onModelLoaded={handleModelLoaded} />
         </Suspense>
         <AutoRotateController />
 

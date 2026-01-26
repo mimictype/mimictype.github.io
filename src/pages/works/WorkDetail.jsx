@@ -38,6 +38,33 @@ function WorkDetail() {
               </div>
               
               <div className="work-detail-content">
+                {/* Adultopia creators-wanted 専用リンク or Haku Gashi 専用リンクを説明文の上に表示 */}
+                {work.id === "creators-wanted" && (
+                  <div className="work-external-link" style={{ margin: '0 0 16px 0' }}>
+                    <a
+                      href="https://adultopia.github.io/creators-wanted/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="back-button"
+                      style={{ marginBottom: '8px' }}
+                    >
+                      サイトを見る ↗
+                    </a>
+                  </div>
+                )}
+                {work.id === "haku-gashi-tw" && (
+                  <div className="work-external-link" style={{ margin: '0 0 16px 0' }}>
+                    <a
+                      href="https://twsho.github.io/haku_gashi_tw/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="back-button"
+                      style={{ marginBottom: '8px' }}
+                    >
+                      サイトを見る ↗
+                    </a>
+                  </div>
+                )}
                 <div className="work-description">
                   <p>{work.description}</p>
                 </div>

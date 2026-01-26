@@ -109,7 +109,7 @@ function ServicePage() {
                     <div className="step-content">
                       <h4 className="step-title">契約</h4>
                       <p className="step-description">
-                        お見積りをご確認いただき、ご納得いただけた場合のみご契約となります。成果報酬型のため、無駄な費用は発生しません。
+                        お見積りをご確認いただき、ご納得いただけた場合のみご契約となります。
                       </p>
                     </div>
                   </div>

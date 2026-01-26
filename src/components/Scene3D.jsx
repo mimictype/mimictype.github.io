@@ -149,14 +149,20 @@ function LoadingFallback() {
 
 function Scene3D({ onLightStateChange, onSceneLoaded }) {
   const [lightIsOn, setLightIsOn] = useState(false); // 初期状態はオフ
+  const lightOnTimerRef = useRef(null); // タイマーID管理
   // モデルロード完了時に点灯タイマーを開始
   const handleModelLoaded = () => {
-    setTimeout(() => {
+    // 既存タイマーがあればクリア
+    if (lightOnTimerRef.current) {
+      clearTimeout(lightOnTimerRef.current);
+    }
+    lightOnTimerRef.current = setTimeout(() => {
       setLightIsOn(true);
       if (onLightStateChange) {
         onLightStateChange(true);
       }
-    }, 2000);
+      lightOnTimerRef.current = null;
+    }, 1000);
     if (onSceneLoaded) {
       onSceneLoaded();
     }
@@ -171,6 +177,11 @@ function Scene3D({ onLightStateChange, onSceneLoaded }) {
     setLightIsOn(isOn);
     if (onLightStateChange) {
       onLightStateChange(isOn);
+    }
+    // タップ時にタイマーリセット
+    if (lightOnTimerRef.current) {
+      clearTimeout(lightOnTimerRef.current);
+      lightOnTimerRef.current = null;
     }
   };
 

@@ -1,5 +1,19 @@
 const worksData = [
   {
+    id: 'creators-wanted',
+    title: 'Adultopia 大人國 クリエイター募集サイト',
+    description: '台湾開催の大型イベント向けに、クリエイター募集のための多言語対応Web応募フォームを開発。Googleフォーム・GAS連携によるファイルアップロードでバックエンドなどを省略し、動的なバリデーション、ユーザー体験を重視したUI設計を実装。',
+    technologies: ['React', 'TypeScript', 'styled-components', 'Google Apps Script', 'Google Forms', 'i18next'],
+    icon: 'achievement-icon-website'
+  },
+  {
+    id: 'haku-gashi-tw',
+    title: '柏 菓子 | Haku Gashi の公式サイト',
+    description: '台中市にある期間限定の聖代刨冰（かき氷）店の公式サイト',
+    technologies: ['React', 'TypeScript', 'CSS'],
+    icon: 'achievement-icon-website'
+  },
+  {
     id: 'event-mock',
     title: 'イベント出展用体験型モック',
     description: '森の中で動物を探して観察する疑似体験システムを開発。6軸（加速度・角速度）センサーを活用し、体験者の回転に応じて音声と映像を切り替えるデバイスを実装。',

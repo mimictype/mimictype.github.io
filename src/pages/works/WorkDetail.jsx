@@ -33,9 +33,9 @@ function WorkDetail() {
             <h2 className="section-title">{work.title}</h2>
             
             <div className="work-detail-container">
-              <div className="work-icon-large">
+              {/* <div className="work-icon-large">
                 <i className={work.icon}></i>
-              </div>
+              </div> */}
               
               <div className="work-detail-content">
                 {/* Adultopia creators-wanted 専用リンク or Haku Gashi 専用リンクを説明文の上に表示 */}

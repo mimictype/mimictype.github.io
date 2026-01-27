@@ -57,7 +57,11 @@
   transition: color 0.3s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+.nav-link.active {
   color: var(--brand-color);
   text-decoration: none;
 }

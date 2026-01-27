@@ -9,7 +9,7 @@ import './HomePage.css';
 
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
-  const [lightIsOn, setLightIsOn] = useState(false); // 電球状態
+  const [lightIsOn, setLightIsOn] = useState(true); // 電球状態（初期値をtrueに）
   const [sceneLoaded, setSceneLoaded] = useState(false); // 3Dシーンのロード状態
   const [fadeOutLoading, setFadeOutLoading] = useState(false); // ローディングフェード
 

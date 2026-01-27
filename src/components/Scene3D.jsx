@@ -148,7 +148,7 @@ function LoadingFallback() {
 }
 
 function Scene3D({ onLightStateChange, onSceneLoaded }) {
-  const [lightIsOn, setLightIsOn] = useState(false); // 初期状態はオフ
+  const [lightIsOn, setLightIsOn] = useState(true); // 初期状態はオン
   const lightOnTimerRef = useRef(null); // タイマーID管理
   // モデルロード完了時に点灯タイマーを開始
   const handleModelLoaded = () => {

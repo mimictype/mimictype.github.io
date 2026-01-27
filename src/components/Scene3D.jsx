@@ -162,7 +162,7 @@ function Scene3D({ onLightStateChange, onSceneLoaded }) {
         onLightStateChange(true);
       }
       lightOnTimerRef.current = null;
-    }, 1000);
+    }, 3000);
     if (onSceneLoaded) {
       onSceneLoaded();
     }

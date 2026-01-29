@@ -48,6 +48,26 @@ function WorksPage() {
                     </div>
                   </Link>
                 </div>
+                {/* 給与・休暇管理システム（小規模企業向け） */}
+                <div className="achievement-item">
+                  <div className="achievement-link" style={{ cursor: 'default', textDecoration: 'none' }}>
+                    <div className="achievement-icon">
+                      <i className="achievement-icon-website"></i>
+                    </div>
+                    <div className="achievement-content">
+                      <h4 className="achievement-title">給与・休暇管理システム（小規模企業向け）</h4>
+                      <p className="achievement-description">
+                        従業員5名の家族経営企業向けに、給与・休暇管理のデジタル化システムを開発。手書き管理からの移行相談を受け、無料運用を前提にGitHub Pages＋Googleスプレッドシート＋GAS構成を設計。Googleログイン認証やAPIのアクセス制限、スプレッドシートの非公開化など、セキュリティにも配慮した運用を実現。
+                      </p>
+                      <div className="achievement-tech-container">
+                        <span className="tech-tag">Vite</span>
+                        <span className="tech-tag">Google Apps Script</span>
+                        <span className="tech-tag">Google Sheets</span>
+                        <span className="tech-tag">Googleでログイン</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 {/* 柏 菓子 | Haku Gashi の公式サイト */}
                 <div className="achievement-item">
                   <Link to="/works/haku-gashi-tw" className="achievement-link">

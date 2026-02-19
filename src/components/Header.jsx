@@ -20,6 +20,9 @@ function Header() {
             <img src={logo} alt="mimictype Logo" className="logo" />
           </Link>
         </div>
+        <button className="lang-switch-btn" onClick={toggleLang} aria-label="Switch language">
+          {lang === 'ja' ? '繁中' : '日本語'}
+        </button>
         <nav className="nav">
           <ul className="nav-list">
             <li className="nav-item">
@@ -33,11 +36,6 @@ function Header() {
             </li>
             <li className="nav-item">
               <Link to="/contact" className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</Link>
-            </li>
-            <li className="nav-item">
-              <button className="lang-switch-btn" onClick={toggleLang} aria-label="Switch language">
-                {lang === 'ja' ? '繁中' : '日本語'}
-              </button>
             </li>
           </ul>
         </nav>

@@ -42,6 +42,7 @@ function WorkDetail() {
               
               <div className="work-detail-content">
                 {/* Adultopia creators-wanted 専用リンク or Haku Gashi 専用リンクを説明文の上に表示 */}
+                {/* creators-wanted 一時非表示
                 {work.id === "creators-wanted" && (
                   <div className="work-external-link" style={{ margin: '0 0 16px 0' }}>
                     <a
@@ -55,6 +56,7 @@ function WorkDetail() {
                     </a>
                   </div>
                 )}
+                */}
                 {work.id === "haku-gashi-tw" && (
                   <div className="work-external-link" style={{ margin: '0 0 16px 0' }}>
                     <a

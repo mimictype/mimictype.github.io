@@ -2,10 +2,12 @@
 import { useState  } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import '../App.css';
 import '../components/Contact.css';
 
 function ContactPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,14 +47,14 @@ function ContactPage() {
       setStatus({
         submitted: true,
         submitting: false,
-        info: { error: false, msg: '送信しました。' }
+        info: { error: false, msg: t('contact.success') }
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: '失敗しました。時間をおいて再度お試しください。' }
+        info: { error: true, msg: t('contact.error') }
       });
     }
   };
@@ -64,11 +66,11 @@ function ContactPage() {
             <div className="contact-container">
               <div className="contact-email-info">
                 <a href="mailto:s@mimictype.com" className="contact-email-link">s@mimictype.com</a><br />
-                もしくは下記フォームからご連絡ください
+                {t('contact.emailInfo')}
               </div>
               <form className="contact-form" onSubmit={handleSubmit} style={{ marginTop: '2rem', width: '100%' }}>
                 <div className="form-group">
-                  <label htmlFor="name">お名前</label>
+                  <label htmlFor="name">{t('contact.name')}</label>
                   <input
                     type="text"
                     id="name"
@@ -79,7 +81,7 @@ function ContactPage() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">メールアドレス</label>
+                  <label htmlFor="email">{t('contact.email')}</label>
                   <input
                     type="email"
                     id="email"
@@ -90,7 +92,7 @@ function ContactPage() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">ご用件</label>
+                  <label htmlFor="message">{t('contact.message')}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -101,7 +103,7 @@ function ContactPage() {
                   />
                 </div>
                 <button type="submit" className="submit-btn" disabled={status.submitting}>
-                  {status.submitting ? '送信中...' : '送信'}
+                  {status.submitting ? t('contact.submitting') : t('contact.submit')}
                 </button>
                 {status.info.msg && (
                   <div className={`status-message${status.info.error ? ' error' : ''}`} style={{ marginTop: '1rem' }}>

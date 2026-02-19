@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Scene3D from '../components/Scene3D';
 import LoadingScreen from '../components/LoadingScreen';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import '../App.css';
 import './HomePage.css';
 
@@ -41,6 +42,8 @@ function HomePage() {
     ? (lightIsOn ? 'hero-subcopy-mobile' : 'hero-subcopy-mobile-dark')
     : (lightIsOn ? 'hero-subcopy' : 'hero-subcopy-dark');
 
+  const { t } = useLanguage();
+
   return (
     <div className="app no-scroll-layout">
       <Header />
@@ -55,13 +58,13 @@ function HomePage() {
           <div className="hero-text-section">
             {isMobile ? (
               <>
-                <p className={subtitleClass}>アイデアを、<br/>カタチにしよう！</p>
-                <p className={subcopyClass}>やりたいことを伝えるだけ。<br/>仕組みと実装はお任せください！</p>
+                <p className={subtitleClass}>{t('home.subtitle.mobile').split('\n').reduce((acc, line, i) => i === 0 ? [line] : [...acc, <br key={i} />, line], [])}</p>
+                <p className={subcopyClass}>{t('home.subcopy.mobile').split('\n').reduce((acc, line, i) => i === 0 ? [line] : [...acc, <br key={i} />, line], [])}</p>
               </>
             ) : (
               <>
-                <p className={subtitleClass}>アイデアを、カタチにしよう！</p>
-                <p className={subcopyClass}>やりたいことを伝えるだけ。仕組みと実装はお任せください！</p>
+                <p className={subtitleClass}>{t('home.subtitle')}</p>
+                <p className={subcopyClass}>{t('home.subcopy')}</p>
               </>
             )}
           </div>

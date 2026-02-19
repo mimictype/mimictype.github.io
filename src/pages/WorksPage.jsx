@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import worksData from '../data/worksData';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import '../App.css';
 import '../components/Works.css';
 
 function WorksPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="app">
       <Header />
@@ -21,9 +23,9 @@ function WorksPage() {
                       <i className="achievement-icon-website"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">Adultopia 大人國 クリエイター募集サイト</h4>
+                      <h4 className="achievement-title">{t('works.creatorsWanted.title')}</h4>
                       <p className="achievement-description">
-                        台湾開催の大型イベント向けに、クリエイター募集のための多言語対応Web応募フォームを開発。Googleフォーム・GAS連携によるファイルアップロードでバックエンドなどを省略し、動的なバリデーション、ユーザー体験を重視したUI設計を実装。
+                        {t('works.creatorsWanted.desc')}
                       </p>
                       <div style={{ margin: '8px 0' }}>
                         <a
@@ -34,7 +36,7 @@ function WorksPage() {
                           style={{ marginBottom: '8px' }}
                           onClick={e => e.stopPropagation()}
                         >
-                          サイトを見る ↗
+                          {t('works.viewSite')}
                         </a>
                       </div>
                       <div className="achievement-tech-container">
@@ -55,15 +57,15 @@ function WorksPage() {
                       <i className="achievement-icon-website"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">給与・休暇管理システム（小規模企業向け）</h4>
+                      <h4 className="achievement-title">{t('works.salary.title')}</h4>
                       <p className="achievement-description">
-                        従業員5名の家族経営企業向けに、給与・休暇管理のデジタル化システムを開発。手書き管理からの移行相談を受け、無料運用を前提にGitHub Pages＋Googleスプレッドシート＋GAS構成を設計。Googleログイン認証やAPIのアクセス制限、スプレッドシートの非公開化など、セキュリティにも配慮した運用を実現。
+                        {t('works.salary.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">Vite</span>
                         <span className="tech-tag">Google Apps Script</span>
                         <span className="tech-tag">Google Sheets</span>
-                        <span className="tech-tag">Googleでログイン</span>
+                        <span className="tech-tag">{t('tech.googleLogin')}</span>
                       </div>
                     </div>
                   </div>
@@ -75,9 +77,9 @@ function WorksPage() {
                       <i className="achievement-icon-website"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">柏 菓子 | Haku Gashi の公式サイト</h4>
+                      <h4 className="achievement-title">{t('works.hakuGashi.title')}</h4>
                       <p className="achievement-description">
-                        台中市にある期間限定の聖代刨冰（かき氷）店の公式サイト
+                        {t('works.hakuGashi.desc')}
                       </p>
                       <div style={{ margin: '8px 0' }}>
                         <a
@@ -88,7 +90,7 @@ function WorksPage() {
                           style={{ marginBottom: '8px' }}
                           onClick={e => e.stopPropagation()}
                         >
-                          サイトを見る ↗
+                          {t('works.viewSite')}
                         </a>
                       </div>
                       <div className="achievement-tech-container">
@@ -106,9 +108,9 @@ function WorksPage() {
                       <i className="achievement-icon-binoculars"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">イベント出展用体験型モック</h4>
+                      <h4 className="achievement-title">{t('works.eventMock.title')}</h4>
                       <p className="achievement-description">
-                        森の中で動物を探して観察する疑似体験システムを開発。6軸（加速度・角速度）センサーを活用し、体験者の回転に応じて音声と映像を切り替えるデバイスを実装。
+                        {t('works.eventMock.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">C/C++</span>
@@ -126,9 +128,9 @@ function WorksPage() {
                       <i className="achievement-icon-steering"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">ステアリング操作感検証用アプリ</h4>
+                      <h4 className="achievement-title">{t('works.steeringApp.title')}</h4>
                       <p className="achievement-description">
-                        自動車部品メーカー向けに、他社製ハードウェアと通信し、GUIを制御するアプリを開発。操作感検証に特化した設計で、安定した動作環境を実現。
+                        {t('works.steeringApp.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">Unity（C#）</span>
@@ -144,9 +146,9 @@ function WorksPage() {
                       <i className="achievement-icon-car"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">イベント向け自動車の空間利用検証システム</h4>
+                      <h4 className="achievement-title">{t('works.carSpace.title')}</h4>
                       <p className="achievement-description">
-                        自動車内のLED・モーター・ディスプレイ・音声を連動制御する演出システムを開発。イベント当日はオンサイトサポートを行い、スムーズな運営を支援。
+                        {t('works.carSpace.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">Max/MSP</span>
@@ -166,9 +168,9 @@ function WorksPage() {
                       <i className="achievement-icon-vr"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">VR触覚デバイス＆サンプルアプリ</h4>
+                      <h4 className="achievement-title">{t('works.vrHaptic.title')}</h4>
                       <p className="achievement-description">
-                        メタバース上の操作に触覚を付与するデバイス制御とサンプルアプリを開発。オブジェクトごとに異なる触覚表現を提案・採用し、没入感の高い体験を提供。
+                        {t('works.vrHaptic.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">Unity（C#）</span>
@@ -186,9 +188,9 @@ function WorksPage() {
                       <i className="achievement-icon-walking"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">歩行検出デバイス</h4>
+                      <h4 className="achievement-title">{t('works.walkingDevice.title')}</h4>
                       <p className="achievement-description">
-                        6軸（加速度・角速度）センサーを活用し、精度の高い歩数計測アルゴリズムと可視化アプリを開発。歩行の量的定義による誤検出抑制が高く評価された。
+                        {t('works.walkingDevice.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">C/C++</span>
@@ -205,9 +207,9 @@ function WorksPage() {
                       <i className="achievement-icon-sensor"></i>
                     </div>
                     <div className="achievement-content">
-                      <h4 className="achievement-title">センサーデータ記録システム</h4>
+                      <h4 className="achievement-title">{t('works.sensorSystem.title')}</h4>
                       <p className="achievement-description">
-                        6軸（加速度・角速度）センサーデータを取得・保存するPCアプリとマイコン制御プログラムを開発。複数デバイスの同時接続・自動転送機能を提案・実装し、操作性を向上。
+                        {t('works.sensorSystem.desc')}
                       </p>
                       <div className="achievement-tech-container">
                         <span className="tech-tag">C/C++</span>

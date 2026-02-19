@@ -1,13 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import worksData from '../../data/worksData';
+import { getWorksData } from '../../data/worksData';
+import { useLanguage } from '../../i18n/LanguageContext.jsx';
 import '../../App.css';
 import './WorkDetail.css';
 
 function WorkDetail() {
   const { workId } = useParams();
-  const work = worksData.find(w => w.id === workId);
+  const { t } = useLanguage();
+  const works = getWorksData(t);
+  const work = works.find(w => w.id === workId);
 
   if (!work) {
     return (
@@ -15,8 +18,8 @@ function WorkDetail() {
         <Header />
         <main className="main">
           <div className="container" style={{ paddingTop: '40px' }}>
-            <h2>作品が見つかりませんでした</h2>
-            <Link to="/works" className="back-button">作品一覧に戻る</Link>
+            <h2>{t('works.notFound')}</h2>
+            <Link to="/works" className="back-button">{t('works.backToList')}</Link>
           </div>
         </main>
         <Footer />
@@ -48,7 +51,7 @@ function WorkDetail() {
                       className="back-button"
                       style={{ marginBottom: '8px' }}
                     >
-                      サイトを見る ↗
+                      {t('works.viewSite')}
                     </a>
                   </div>
                 )}
@@ -61,7 +64,7 @@ function WorkDetail() {
                       className="back-button"
                       style={{ marginBottom: '8px' }}
                     >
-                      サイトを見る ↗
+                      {t('works.viewSite')}
                     </a>
                   </div>
                 )}
@@ -70,7 +73,7 @@ function WorkDetail() {
                 </div>
                 
                 <div className="work-technologies">
-                  <h3>使用技術</h3>
+                  <h3>{t('works.technologies')}</h3>
                   <div className="tech-tags">
                     {work.technologies.map((tech, index) => (
                       <span key={index} className="tech-tag">{tech}</span>
@@ -78,7 +81,7 @@ function WorkDetail() {
                   </div>
                 </div>
                 
-                <Link to="/works" className="back-button">作品一覧に戻る</Link>
+                <Link to="/works" className="back-button">{t('works.backToList')}</Link>
               </div>
             </div>
           </div>

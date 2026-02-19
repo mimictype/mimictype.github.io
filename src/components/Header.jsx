@@ -1,10 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './Header.css';
 import logo from '/logo_512x160.png';
 
 function Header() {
   const location = useLocation();
   const currentPath = location.pathname;
+  const { lang, setLang } = useLanguage();
+
+  const toggleLang = () => {
+    setLang(lang === 'ja' ? 'zh-TW' : 'ja');
+  };
 
   return (
     <header className="header">
@@ -27,6 +33,11 @@ function Header() {
             </li>
             <li className="nav-item">
               <Link to="/contact" className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</Link>
+            </li>
+            <li className="nav-item">
+              <button className="lang-switch-btn" onClick={toggleLang} aria-label="Switch language">
+                {lang === 'ja' ? '繁中' : '日本語'}
+              </button>
             </li>
           </ul>
         </nav>

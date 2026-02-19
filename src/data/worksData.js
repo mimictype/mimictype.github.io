@@ -1,3 +1,65 @@
+export function getWorksData(t) {
+  return [
+    {
+      id: 'creators-wanted',
+      title: t('works.creatorsWanted.title'),
+      description: t('works.creatorsWanted.desc'),
+      technologies: ['React', 'TypeScript', 'styled-components', 'Google Apps Script', 'Google Forms', 'i18next'],
+      icon: 'achievement-icon-website'
+    },
+    {
+      id: 'haku-gashi-tw',
+      title: t('works.hakuGashi.title'),
+      description: t('works.hakuGashi.desc'),
+      technologies: ['React', 'TypeScript', 'CSS'],
+      icon: 'achievement-icon-website'
+    },
+    {
+      id: 'event-mock',
+      title: t('works.eventMock.title'),
+      description: t('works.eventMock.desc'),
+      technologies: ['C/C++', 'Unity（C#）', 'Arduino', 'UDP通信'],
+      icon: 'achievement-icon-binoculars'
+    },
+    {
+      id: 'steering-app',
+      title: t('works.steeringApp.title'),
+      description: t('works.steeringApp.desc'),
+      technologies: ['Unity（C#）', 'UDP通信'],
+      icon: 'achievement-icon-steering'
+    },
+    {
+      id: 'car-space-system',
+      title: t('works.carSpace.title'),
+      description: t('works.carSpace.desc'),
+      technologies: ['Max/MSP', 'Node.js', 'C/C++', 'MQTT', 'Raspberry Pi', 'OBS'],
+      icon: 'achievement-icon-car'
+    },
+    {
+      id: 'vr-haptic',
+      title: t('works.vrHaptic.title'),
+      description: t('works.vrHaptic.desc'),
+      technologies: ['Unity（C#）', 'Arduino', 'LeapMotion', 'Bluetooth通信'],
+      icon: 'achievement-icon-vr'
+    },
+    {
+      id: 'walking-device',
+      title: t('works.walkingDevice.title'),
+      description: t('works.walkingDevice.desc'),
+      technologies: ['C/C++', 'Unity（C#）', 'Bluetooth通信'],
+      icon: 'achievement-icon-walking'
+    },
+    {
+      id: 'sensor-system',
+      title: t('works.sensorSystem.title'),
+      description: t('works.sensorSystem.desc'),
+      technologies: ['C/C++', 'Unity（C#）', 'Arduino', 'Bluetooth通信'],
+      icon: 'achievement-icon-sensor'
+    }
+  ];
+}
+
+// Keep default export for backward compatibility
 const worksData = [
   {
     id: 'creators-wanted',

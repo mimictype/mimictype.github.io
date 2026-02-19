@@ -1,0 +1,88 @@
+const zhTW = {
+  // HomePage
+  'home.subtitle': '將點子化為現實！',
+  'home.subtitle.mobile': '將點子，\n化為現實！',
+  'home.subcopy': '只需告訴我們您想做什麼，架構與實作交給我們！',
+  'home.subcopy.mobile': '只需告訴我們您想做什麼。\n架構與實作交給我們！',
+
+  // AboutPage
+  'about.nameMeaning': '名稱的含義',
+  'about.nameMeaningDesc': 'mimictype 是由「mimic（模仿・擬態）」和「type（型態・形式）」組合而成的自創詞。',
+  'about.mimicTitle': 'mimic（模仿）',
+  'about.mimicDesc': '意指巧妙組合現有的技術與元素，使其如同真實般運作。\n即使不從零開始打造一切，也能用手邊的資源讓事物順利運轉。\nmimictype 思想的核心在於「只要能達成目的，即使是模仿也無妨」這種靈活的實現主義。',
+  'about.typeTitle': 'type（型態）',
+  'about.typeDesc': '在 IT 業界廣泛使用的「型（資料型別）」專業術語。\n加入這個詞彙，讓名稱自然地與技術・開發・IT 領域產生連結。\n同時也蘊含 Prototype（原型）進化版的意涵，象徵著「快速實現」的態度。',
+  'about.philosophy': '理念',
+  'about.philosophyText': '目標唯一，方法無限。\n為了達成目標，不一定要從零開始打造一切。\n現有技術、現成產品，甚至繞道而行，都能成為最快抵達目的地的手段。\nmimictype 以「思維轉換」而非「硬突破」，超越極限。',
+  'about.representative': '代表介紹',
+  'about.representativeName': '林　翔',
+  'about.representativeNameYomi': 'Hayashi Sho',
+  'about.representativeEmail': 's@mimictype.com',
+  'about.representativeMotto': '用 IT 的力量改變世界',
+
+  // ServicePage
+  'service.whatWeCanMake': '服務項目',
+  'service.hardwareTitle': '電子製作・硬體控制',
+  'service.hardware1': '小型電子裝置的製作',
+  'service.hardware2': '感測器・致動器控制（角速度感測器、伺服馬達、LED 等）',
+  'service.hardware3': '與其他裝置的整合控制系統建構',
+  'service.appTitle': '應用程式開發',
+  'service.app1': 'PC 應用程式（Windows / macOS）',
+  'service.app2': '手機應用程式（iOS / Android）',
+  'service.app3': 'Web 應用程式・網站製作',
+  'service.app4': 'LINE Bot 開發',
+  'service.gameTitle': '遊戲開發',
+  'service.game1': '超休閒遊戲製作',
+  'service.processTitle': '委託流程',
+  'service.step1Title': '聯繫我們',
+  'service.step1Desc': '歡迎透過電子郵件聯繫我們。即使是「這種事情做得到嗎？」這樣粗略的內容也沒問題。',
+  'service.step2Title': '需求訪談與提案',
+  'service.step2Desc': '在了解詳細需求的同時，我們會根據您的需求和課題提出解決方案。必要時也會準備多個方案。',
+  'service.step3Title': '簽約',
+  'service.step3Desc': '確認報價後，僅在您同意的情況下才進行簽約。',
+  'service.step4Title': '開發',
+  'service.step4Desc': '根據雙方達成共識的內容，推進開發工作。',
+  'service.step5Title': '交付・售後支援',
+  'service.step5Desc': '完成品交付後，我們會說明必要的使用方式和注意事項。交付後的疑問或小幅修改，也會在一定期間內提供支援。',
+
+  // WorksPage & WorkDetail
+  'works.viewSite': '查看網站 ↗',
+  'works.notFound': '找不到作品',
+  'works.backToList': '返回作品列表',
+  'works.technologies': '使用技術',
+
+  // worksData
+  'works.creatorsWanted.title': 'Adultopia 大人國 創作者招募網站',
+  'works.creatorsWanted.desc': '為在台灣舉辦的大型活動開發了多語言版 Web 報名表單，用於招募創作者。透過 Google 表單・GAS 串接檔案上傳，省略後端等架構，實現動態驗證及注重使用者體驗的 UI 設計。',
+  'works.salary.title': '薪資・休假管理系統（小型企業適用）',
+  'works.salary.desc': '為 5 名員工的家族企業開發薪資・休假管理數位化系統。接受從手寫管理轉型的諮詢，以免費營運為前提設計 GitHub Pages＋Google 試算表＋GAS 架構。在 Google 登入認證、API 存取限制、試算表非公開化等方面，兼顧了安全性考量。',
+  'works.hakuGashi.title': '柏 菓子 | Haku Gashi 官方網站',
+  'works.hakuGashi.desc': '位於台中市的期間限定聖代刨冰店官方網站',
+  'works.eventMock.title': '展覽活動用體驗型模型',
+  'works.eventMock.desc': '開發了在森林中尋找並觀察動物的模擬體驗系統。運用 6 軸（加速度・角速度）感測器，實現根據體驗者旋轉來切換音效與影像的裝置。',
+  'works.steeringApp.title': '方向盤操作感驗證用應用程式',
+  'works.steeringApp.desc': '為汽車零件製造商開發了與其他公司硬體通訊並控制 GUI 的應用程式。專為操作感驗證設計，實現穩定的運作環境。',
+  'works.carSpace.title': '活動用汽車空間利用驗證系統',
+  'works.carSpace.desc': '開發了汽車內 LED・馬達・螢幕・音訊聯動控制的演出系統。活動當天提供現場支援，協助順利營運。',
+  'works.vrHaptic.title': 'VR 觸覺裝置＆範例應用程式',
+  'works.vrHaptic.desc': '開發了在元宇宙操作中賦予觸覺的裝置控制與範例應用程式。針對不同物件提出並採用不同的觸覺表現，提供高沉浸感的體驗。',
+  'works.walkingDevice.title': '步行偵測裝置',
+  'works.walkingDevice.desc': '運用 6 軸（加速度・角速度）感測器，開發了高精度步數計測演算法與視覺化應用程式。透過步行的量化定義抑制誤偵測，獲得高度評價。',
+  'works.sensorSystem.title': '感測器資料記錄系統',
+  'works.sensorSystem.desc': '開發了取得並儲存 6 軸（加速度・角速度）感測器資料的 PC 應用程式與微控制器控制程式。提出並實現多裝置同時連線・自動傳輸功能，提升操作便利性。',
+
+  // ContactPage
+  'contact.emailInfo': '或透過以下表單聯繫我們',
+  'contact.name': '姓名',
+  'contact.email': '電子郵件',
+  'contact.message': '內容',
+  'contact.submit': '送出',
+  'contact.submitting': '送出中...',
+  'contact.success': '已成功送出。',
+  'contact.error': '傳送失敗，請稍後再試。',
+
+  // tech tags that are in Japanese
+  'tech.googleLogin': 'Google 登入',
+};
+
+export default zhTW;

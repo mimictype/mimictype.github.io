@@ -16,7 +16,73 @@ function WorksPage() {
           <div className="container">
             <div className="works-container">
               <div className="achievements-grid">
-                {/* creators-wanted 一時非表示
+                {/* creator-vote-final (決戦) */}
+<div className="achievement-item">
+  <Link to="/works/creator-vote-final" className="achievement-link">
+    <div className="achievement-icon">
+      <i className="achievement-icon-website"></i>
+    </div>
+    <div className="achievement-content">
+      <h4 className="achievement-title">{t('works.creatorVoteFinal.title')}</h4>
+      <p className="achievement-description">
+        {t('works.creatorVoteFinal.desc')}
+      </p>
+      <div style={{ margin: '8px 0' }}>
+        <a
+          href="https://adultopia.github.io/creator-vote-final/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="back-button"
+          onClick={e => e.stopPropagation()}
+        >
+          {t('works.viewSite')}
+        </a>
+      </div>
+      <div className="achievement-tech-container">
+        <span className="tech-tag">React</span>
+        <span className="tech-tag">Firebase</span>
+        <span className="tech-tag">Firestore</span>
+        <span className="tech-tag">Cloud Functions</span>
+        <span className="tech-tag">Token Auth</span>
+        <span className="tech-tag">i18next</span>
+      </div>
+    </div>
+  </Link>
+</div>
+                {/* creator-vote (予選) */}
+<div className="achievement-item">
+  <Link to="/works/creator-vote" className="achievement-link">
+    <div className="achievement-icon">
+      <i className="achievement-icon-website"></i>
+    </div>
+    <div className="achievement-content">
+      <h4 className="achievement-title">{t('works.creatorVotePre.title')}</h4>
+      <p className="achievement-description">
+        {t('works.creatorVotePre.desc')}
+      </p>
+      <div style={{ margin: '8px 0' }}>
+        <a
+          href="https://adultopia.github.io/creator-vote/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="back-button"
+          onClick={e => e.stopPropagation()}
+        >
+          {t('works.viewSite')}
+        </a>
+      </div>
+      <div className="achievement-tech-container">
+        <span className="tech-tag">React</span>
+        <span className="tech-tag">Firebase Auth</span>
+        <span className="tech-tag">Firestore</span>
+        <span className="tech-tag">Cloud Functions</span>
+        <span className="tech-tag">i18next</span>
+        <span className="tech-tag">{t('tech.googleLogin')}</span>
+      </div>
+    </div>
+  </Link>
+</div>
+                {/* creators-wanted */}
                 <div className="achievement-item">
                   <Link to="/works/creators-wanted" className="achievement-link">
                     <div className="achievement-icon">
@@ -50,7 +116,7 @@ function WorksPage() {
                     </div>
                   </Link>
                 </div>
-                */}
+               
                 {/* 給与・休暇管理システム（小規模企業向け） */}
                 <div className="achievement-item">
                   <div className="achievement-link" style={{ cursor: 'default', textDecoration: 'none' }}>

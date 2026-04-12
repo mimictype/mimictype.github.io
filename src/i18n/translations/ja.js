@@ -52,6 +52,11 @@ const ja = {
   'works.technologies': '使用技術',
 
   // worksData
+  'works.creatorVoteFinal.title': 'Adultopia 大人國 クリエイター人気投票サイト（決戦）',
+  'works.creatorVoteFinal.desc': 'リアルイベント会場向けに、16桁英数字トークンによるワンタイム認証を用いた決戦投票システムを開発。即時更新されるランキング表示、管理者用画面を含めた運用機能を実装し、不正投票対策とスムーズな投票体験を両立した。',
+  'works.creatorVotePre.title': 'Adultopia 大人國 クリエイター人気投票サイト（予選）',
+  'works.creatorVotePre.desc': '台湾大型イベント向けに、クリエイター人気投票の予選システムを開発。Google認証を用いたユーザー識別と、投票回数制御を含む投票ロジックを設計・実装。Firebaseを用いてAPI・データベースを構築し、短期間で運用可能な投票基盤を構築した。',
+
   'works.creatorsWanted.title': 'Adultopia 大人國 クリエイター募集サイト',
   'works.creatorsWanted.desc': '台湾開催の大型イベント向けに、クリエイター募集のための多言語対応Web応募フォームを開発。Googleフォーム・GAS連携によるファイルアップロードでバックエンドなどを省略し、動的なバリデーション、ユーザー体験を重視したUI設計を実装。',
   'works.salary.title': '給与・休暇管理システム（小規模企業向け）',

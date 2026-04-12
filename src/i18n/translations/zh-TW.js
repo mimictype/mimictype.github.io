@@ -52,6 +52,10 @@ const zhTW = {
   'works.technologies': '使用技術',
 
   // worksData
+  'works.creatorVoteFinal.title': 'Adultopia 大人國 創作者人氣投票網站（決賽）',
+  'works.creatorVoteFinal.desc': '為實體活動會場開發了使用 16 位英數字 Token 進行一次性認證的決賽投票系統。實作即時更新的排名顯示及含管理員畫面的運營功能，兼顧防止非法投票與流暢的投票體驗。',
+  'works.creatorVotePre.title': 'Adultopia 大人國 創作者人氣投票網站（預賽）',
+  'works.creatorVotePre.desc': '為台灣大型活動開發了創作者人氣投票的預賽系統。設計並實作以 Google 認證識別使用者、含投票次數控制的投票邏輯。使用 Firebase 建構 API 與資料庫，在短期內完成可正式運營的投票基礎架構。',
   'works.creatorsWanted.title': 'Adultopia 大人國 創作者招募網站',
   'works.creatorsWanted.desc': '為在台灣舉辦的大型活動開發了多語言版 Web 報名表單，用於招募創作者。透過 Google 表單・GAS 串接檔案上傳，省略後端等架構，實現動態驗證及注重使用者體驗的 UI 設計。',
   'works.salary.title': '薪資・休假管理系統（小型企業適用）',
